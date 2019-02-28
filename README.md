@@ -66,14 +66,19 @@ After feature engineering, we have 5 sets of features, they are:
  
 Feature counts under each category are:
 
-raw: 5
-date_time: 6
-time_delta: 62
-unique_count: 75
-count_groupby_0_3600: 16
-count_groupby_0_21600: 16
+#### raw: 5
 
-total: 180
+#### date_time: 6
+
+#### time_delta: 62
+
+#### unique_count: 75
+
+#### count_groupby_0_3600: 16
+
+#### count_groupby_0_21600: 16
+
+#### total: 180
 
 ## 3. Model
 10 bagged GBMs. Will add more details later.
