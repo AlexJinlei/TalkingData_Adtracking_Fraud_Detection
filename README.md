@@ -80,6 +80,9 @@ Feature counts under each category are:
 
 #### total: 180
 
+## 4. Negative Downsample
+In training data set, the positive and negative are extremely imbalanced (Positive/Negative = 0.25%). We adopted negative downsampled strategy to balance the positive and negative records. After downsampling, the positive and negative recordes are approximately equal.
+
 ## 3. Model
 10 bagged GBMs. Will add more details later.
 
