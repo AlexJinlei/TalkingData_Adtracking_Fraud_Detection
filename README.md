@@ -88,7 +88,8 @@ In training data set, the positive and negative records are extremely imbalanced
 After downsample, we seperate training set and testing set.
 
 ## 5. Model
-We use gradient boosting decision tree to train our model. A simple GBM can achieve ROC score 0.98. Two further improve our score, we bagged 10 GBMs to make an assembled model. The assembled model achieved the ROC score 0.9828235. After fine tuning, we got the best parameters:
+### Code: 8_model.py
+We use gradient boosting decision tree to train our model. A simple GBM can achieve ROC score 0.98. To further improve our score, we bagged 10 GBMs to make an assembled model. The assembled model achieved the ROC score 0.9828235. After fine tuning, we got the best parameters:
 
 model_params = { 'boosting_type': 'gbdt', 'metric':['auc'], 'objective':'binary',  'learning_rate': 0.01, 'max_depth': 7,'num_leaves':127,  'subsample': 0.9, 'subsample_freq': 1, 'sub_feature': 0.4, 'verbose': -1}
       
