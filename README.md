@@ -12,6 +12,9 @@ This code preprocesses the testing and training data. A new test data set was re
 
 ## 3. Feature Engineer
 ### Code: 3_generate_features.py
+
+This step is very hardware resource consuming. This work is run parallelly on a cluster server node with 40 GPU cores. 
+
 Caution: feature engineer should be done to both training and testing data. We combined the training and testing data sets to one set to perform feature engineer. After feature engineering, we detach the training and testing data. There are five raw features in original training data, which are 'ip', 'app', 'device', 'os', and 'channel'. Firstly we created a power set of the raw features, in which the 'ip' feature must be included. Secondly, we add the date and time features to the data set, including 'year', 'month', 'weekday', 'day', 'hour', 'minute', 'second', 'hour_of_day', 'hour_of_day_sin', 'hour_of_day_cos'. There are 10 date and time features in total, but finally we only use 'weekday', 'hour', 'minute', 'hour_of_day', 'hour_of_day_sin', 'hour_of_day_cos'. The third step, we generate click time delta under given feature combination, including forward time delta and backward time delta. The fourth step, we create the unique count of feature under given feature combination. The last step is to generate click count under given feature combination within time range. We set the time range to 1 hour and 6 hours.
 
 After feature engineering, we have 5 sets of features, they are:
