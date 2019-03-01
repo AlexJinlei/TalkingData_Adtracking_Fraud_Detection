@@ -81,10 +81,18 @@ Feature counts under each category are:
 #### total: 180
 
 ## 4. Negative Downsample
-In training data set, the positive and negative are extremely imbalanced (Positive/Negative = 0.25%). We adopted negative downsampled strategy to balance the positive and negative records. After downsampling, the positive and negative recordes are approximately equal.
+### Code: 4_generate_negative_downsample_index.py, 5_negative_downsample_features.py
+In training data set, the positive and negative records are extremely imbalanced (Positive/Negative = 0.25%). We adopted negative downsampled strategy to balance the positive and negative records. After downsampling, the positive and negative recordes are approximately equal.
 
-## 3. Model
-10 bagged GBMs. Will add more details later.
+### Code: 6_generate_training_set_and_label.py, 7_separate_test_set.py
+After downsample, we seperate training set and testing set.
 
-## 3. Results
+## 5. Model
+We use gradient boosting decision tree to train our model. A simple GBM can achieve ROC score 0.98. Two further improve our score, we bagged 10 GBMs to make an assembled model. The assembled model achieved the ROC score 0.9828235. After fine tuning, we got the best parameters:
+
+model_params = { 'boosting_type': 'gbdt', 'metric':['auc'], 'objective':'binary',  'learning_rate': 0.01, 'max_depth': 7,'num_leaves':127,  'subsample': 0.9, 'subsample_freq': 1, 'sub_feature': 0.4, 'verbose': -1}
+      
+train_params = { 'num_boost_round': 5000, 'early_stopping_rounds': 100}
+
+## 6. Results
 Late submission, ROC = 0.9828235, rank 24/3951
